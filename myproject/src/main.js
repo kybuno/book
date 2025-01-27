@@ -23,11 +23,12 @@ renderer.render(scene,camera);
 const bookCover= new THREE.TextureLoader().load('images/extracted_book.jpg');
 
 //make spine and back cover the most common colour on the cover (for now? how to do that)
+// add page textures, maybe possible can do those like coloured pages but still have the page texture looking thing?
 
 //add le book
+//const material = new THREE.MeshStandardMaterial({color: 0xFF6347});
 const geometry = new THREE.BoxGeometry (6,10,3)
-const material = new THREE.MeshStandardMaterial({color: 0xFF6347});
-const bookTexture = new THREE.MeshBasicMaterial({map:bookCover})
+const bookTexture = new THREE.MeshStandardMaterial({map:bookCover})
 const book = new THREE.Mesh(geometry,bookTexture);
 book.castShadow=true;
 
@@ -44,11 +45,11 @@ book.position.setX(-10);*/
 renderer.shadowMap.enabled = true
 
 //lighting
-const directionalLight = new THREE.DirectionalLight(0xffffff,0.5);
+const directionalLight = new THREE.DirectionalLight(0xffffff,0.88);
 directionalLight.position.set(10,10,6);
 directionalLight.castShadow=true;
 
-const ambientLight = new THREE.AmbientLight(0x404040,0.2);
+const ambientLight = new THREE.AmbientLight(0x404040,1);
 scene.add(directionalLight,ambientLight)
 
 
