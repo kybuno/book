@@ -34,11 +34,11 @@ book.position.setX(-10);*/
 renderer.shadowMap.enabled = true
 
 //lighting
-const directionalLight = new THREE.DirectionalLight(0xffffff,0.8);
+const directionalLight = new THREE.DirectionalLight(0xffffff,0.5);
 directionalLight.position.set(10,10,6);
 directionalLight.castShadow=true;
 
-const ambientLight = new THREE.AmbientLight(0x404040);
+const ambientLight = new THREE.AmbientLight(0x404040,0.2);
 scene.add(directionalLight,ambientLight)
 
 
@@ -51,8 +51,22 @@ scene.add(lightHelper,gridHelper)
 //controls
 const controls = new OrbitControls(camera,renderer.domElement);
 
+
+//background texture
+const backGround = new THREE.TextureLoader().load('images/pedestal.jpg');
+scene.background = backGround;
+
+
+//texture mapping test
+/*const jeffTexture = new THREE.TextureLoader().load('jeff.png');
+
+const jeff = new THREE.Mesh(
+  new THREE.BoxGeometry(3,3,3),
+  new THREE.MeshBasicMaterial({map:jeffTexture})
+);*/
+
 //add random objects ('stars')
-function addStar() {
+/*function addStar() {
   const geometry = new THREE.SphereGeometry(0.25, 24,24);
   const material = new THREE.MeshStandardMaterial({color: 0xffffff});
   const star = new THREE.Mesh(geometry,material);
@@ -62,21 +76,7 @@ function addStar() {
   star.position.set(x,y,z);
   scene.add(star);
 }
-
-Array(200).fill().forEach(addStar);
-
-//background texture
-const backGround = new THREE.TextureLoader().load('images/pic.jpg');
-scene.background = backGround;
-
-
-//texture mapping test
-const jeffTexture = new THREE.TextureLoader().load('jeff.png');
-
-const jeff = new THREE.Mesh(
-  new THREE.BoxGeometry(3,3,3),
-  new THREE.MeshBasicMaterial({map:jeffTexture})
-);
+Array(200).fill().forEach(addStar);*/
 
 
 
