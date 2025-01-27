@@ -1,0 +1,13 @@
+canvas{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+main {
+  position: absolute;
+
+  display: grid;
+  grid-template-columns: repeat(12,1fr); 
+  /*gives u 12 columns to space children*/
+}
