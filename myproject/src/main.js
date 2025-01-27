@@ -18,13 +18,23 @@ camera.position.setZ(30);
 
 renderer.render(scene,camera);
 
-//add something to see
+
+//book cover texture! 
+const bookCover= new THREE.TextureLoader().load('images/extracted_book.jpg');
+
+//make spine and back cover the most common colour on the cover (for now? how to do that)
+
+//add le book
 const geometry = new THREE.BoxGeometry (6,10,3)
 const material = new THREE.MeshStandardMaterial({color: 0xFF6347});
-const book = new THREE.Mesh(geometry,material);
+const bookTexture = new THREE.MeshBasicMaterial({map:bookCover})
+const book = new THREE.Mesh(geometry,bookTexture);
 book.castShadow=true;
 
 scene.add(book);
+
+
+
 
 //move the book a bit
 /*book.position.z=30;
@@ -55,6 +65,7 @@ const controls = new OrbitControls(camera,renderer.domElement);
 //background texture
 const backGround = new THREE.TextureLoader().load('images/pedestal.jpg');
 scene.background = backGround;
+
 
 
 //texture mapping test
