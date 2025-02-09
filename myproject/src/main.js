@@ -106,5 +106,4 @@ function animate() {
 
 animate();
 
-
- 
+/*use npm run dev in the myproject folder to run locally for testing*/
